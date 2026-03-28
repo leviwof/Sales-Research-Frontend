@@ -62,7 +62,7 @@ export default function Home() {
   const [llmConfigured, setLlmConfigured] = useState(false);
   const [assignmentLeads, setAssignmentLeads] = useState<Lead[]>([]);
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+  const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "https://sales-research-backend.onrender.com").replace(/\/$/, "");
 
   const loadState = useCallback(async () => {
     try {
@@ -79,7 +79,7 @@ export default function Home() {
     } catch (error) {
       setStatus("Failed to load initial state");
     }
-  }, []);
+  }, [API_BASE]);
 
   useEffect(() => {
     loadState();
