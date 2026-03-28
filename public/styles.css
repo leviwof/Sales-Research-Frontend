@@ -1,0 +1,263 @@
+:root {
+  --bg: #f3efe6;
+  --paper: rgba(255, 250, 243, 0.95);
+  --ink: #1e2a25;
+  --muted: #5f6d65;
+  --line: rgba(30, 42, 37, 0.14);
+  --accent: #0f766e;
+  --accent-strong: #0b5f59;
+  --warm: #b45309;
+  --danger: #a61b1b;
+  --shadow: 0 20px 70px rgba(30, 42, 37, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(180, 83, 9, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(15, 118, 110, 0.18), transparent 24%),
+    linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+}
+
+.shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 56px 0 72px;
+}
+
+.hero {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.lede {
+  max-width: 62ch;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.controls {
+  padding: 24px;
+}
+
+.controls-header,
+.results-header,
+.brief-top,
+.action-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls-header p,
+.results-header p,
+.raw-input,
+.website,
+.meta,
+.status,
+.brief-grid p,
+.sources,
+.sources-wrap {
+  color: var(--muted);
+}
+
+.badge {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.12);
+  color: var(--accent-strong);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.86rem;
+}
+
+textarea {
+  width: 100%;
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  resize: vertical;
+  background: #fffdf8;
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.5;
+}
+
+button,
+.upload-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 140ms ease, opacity 140ms ease, background 140ms ease;
+}
+
+button:hover,
+.upload-button:hover {
+  transform: translateY(-1px);
+}
+
+button {
+  background: var(--accent);
+  color: #f7f8f5;
+}
+
+button.secondary {
+  background: var(--warm);
+}
+
+button.ghost,
+.upload-button {
+  background: rgba(30, 42, 37, 0.06);
+  color: var(--ink);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.upload-button input {
+  display: none;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status {
+  margin: 18px 0 0;
+}
+
+.results-panel {
+  margin-top: 24px;
+  padding: 24px;
+}
+
+.results {
+  display: grid;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.brief-card {
+  padding: 22px;
+  border-radius: 22px;
+  background: #fffdf9;
+  border: 1px solid rgba(30, 42, 37, 0.09);
+}
+
+.company-name {
+  font-size: 1.45rem;
+}
+
+.qualification {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 0.86rem;
+}
+
+.qualification.yes {
+  background: rgba(15, 118, 110, 0.12);
+  color: var(--accent-strong);
+}
+
+.qualification.no {
+  background: rgba(166, 27, 27, 0.09);
+  color: var(--danger);
+}
+
+.brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0;
+}
+
+.questions,
+.sources {
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.questions li,
+.sources li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.sources-wrap {
+  margin-top: 16px;
+}
+
+.meta {
+  margin: 16px 0 0;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    width: min(100% - 20px, 1120px);
+    padding-top: 28px;
+  }
+
+  h1 {
+    max-width: none;
+  }
+
+  .controls-header,
+  .results-header,
+  .brief-top,
+  .action-row {
+    display: grid;
+    align-items: start;
+  }
+
+  .brief-grid {
+    grid-template-columns: 1fr;
+  }
+}

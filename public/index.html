@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Intelligence Automator</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Sales Research Prototype</p>
+        <h1>Turn messy lead lists into discovery-ready sales briefs.</h1>
+        <p class="lede">
+          Paste company names or URLs, run the analysis, and review structured summaries with B2B qualification calls and tailored discovery questions.
+        </p>
+      </section>
+
+      <section class="panel controls">
+        <div class="controls-header">
+          <div>
+            <h2>Lead Input</h2>
+            <p>Supports one lead per line. You can also upload a text or CSV file.</p>
+          </div>
+          <span id="llmBadge" class="badge">Checking model configuration...</span>
+        </div>
+
+        <textarea id="leadInput" rows="12" spellcheck="false"></textarea>
+
+        <div class="action-row">
+          <label class="upload-button">
+            <input id="fileInput" type="file" accept=".txt,.csv" />
+            Upload leads
+          </label>
+          <label class="checkbox">
+            <input id="overwriteInput" type="checkbox" checked />
+            Re-run existing briefs
+          </label>
+        </div>
+
+        <div class="action-row">
+          <button id="loadSamplesButton" class="secondary">Load assignment leads</button>
+          <button id="analyzeButton">Analyze pasted leads</button>
+          <button id="analyzeSamplesButton" class="ghost">Analyze assignment leads</button>
+        </div>
+
+        <p id="status" class="status">Ready.</p>
+      </section>
+
+      <section class="panel results-panel">
+        <div class="results-header">
+          <h2>Generated Briefs</h2>
+          <p id="resultCount">0 leads analyzed</p>
+        </div>
+        <div id="results" class="results"></div>
+      </section>
+    </main>
+
+    <template id="resultTemplate">
+      <article class="brief-card">
+        <div class="brief-top">
+          <div>
+            <h3 class="company-name"></h3>
+            <p class="raw-input"></p>
+          </div>
+          <span class="qualification"></span>
+        </div>
+        <p class="website"></p>
+        <div class="brief-grid">
+          <div>
+            <h4>Overview</h4>
+            <p class="overview"></p>
+          </div>
+          <div>
+            <h4>Core Product or Service</h4>
+            <p class="service"></p>
+          </div>
+          <div>
+            <h4>Target Customer or Audience</h4>
+            <p class="audience"></p>
+          </div>
+          <div>
+            <h4>Qualification Reason</h4>
+            <p class="reason"></p>
+          </div>
+        </div>
+        <div>
+          <h4>Sales Questions</h4>
+          <ol class="questions"></ol>
+        </div>
+        <details class="sources-wrap">
+          <summary>Source pages</summary>
+          <ul class="sources"></ul>
+        </details>
+        <p class="meta"></p>
+      </article>
+    </template>
+
+    <script src="https://js.puter.com/v2/"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
